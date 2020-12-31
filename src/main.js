@@ -33,14 +33,14 @@ const FormAutoFill = new Vue({
     // ID 限填 10 碼
     limitIdLen(val) {
       if(val.length = 10) {
-        return this.id =  this.id.slice(0, 4);
+        return this.id =  this.id.slice(0, 10);
       }
     },
     // 送出表單
     submit() {
       // 再一次判斷是不是可以送出資料
       if(this.person.name !== undefined) {
-        let params = `${this.input.id}=${this.person.id}&${this.input.name}=${this.person.name}&${this.input.pickup}=${this.person.pickup}&${this.input.addr}=${this.person.addr}&${this.input.amount}=${this.person.amount}&${this.input.msg}=${this.person.msg}`;
+        let params = `${this.input.id}=${this.person.id}&${this.input.name}=${this.person.name}&${this.input.pickup}=${this.person.pickup}&${this.input.addr}=${this.person.addr}&${this.input.amount}=${this.person.amount}&${this.input.acc}=${this.person.acc}`;
         fetch(this.formAction + '?' + params, {
           method: 'POST'
         }).catch(err => {
