@@ -50,46 +50,31 @@
           <h1>Google表單，輸入ID後自動帶入其它欄位資料</h1>
           <p>筆記文：<a href="https://letswrite.tw/google-forms-id-data/" target="_blank">Let's Write</a></p>
         </div>
-        <div class="form-group">
-          <label for="main_id">取貨方式</label>
-          <input class="form-control" id="main_id" type="number" v-model="id" @input="limitIdLen(id)"/>
+         <div class="form-group">
+          <label for="id">請輸入手機號碼</label>
+          <input class="form-control" id="id" type="number" v-model="id" @input="limitIdLen(id)"/>
         </div>
-        <div class="two-col">
-          <div class="col">
-            <div class="form-group">
-              <label for="name">姓名</label>
-              <div class="prepend">
-                <div class="pre male" v-if="person.gender == '男'">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                    <path fill="#00A7E5" d="M18.586 5H14V3h8v8h-2V6.414l-3.537 3.537a7.5 7.5 0 1 1-1.414-1.414L18.586 5z"></path>
-                  </svg>
-                </div>
-                <div class="pre female" v-if="person.gender == '女'">
-                  <female></female>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                    <path fill="#E91E63" d="M11 15.934A7.501 7.501 0 0 1 12 1a7.5 7.5 0 0 1 1 14.934V18h5v2h-5v4h-2v-4H6v-2h5v-2.066z"></path>
-                  </svg>
-                </div>
-                <input class="form-control" id="name" type="text" v-model="person.name" disabled="disabled"/>
-              </div>
+        <div class="name">
+          <label for="name">姓名</label>
+          <input class="form-control" id="name" type="text" disabled="disabled"/>
+        </div>
+        <div class="col">
+            <div class="pickup">
+              <label for="pickup">取貨方式</label>
+              <input class="form-control" id="pickup" type="text" v-model="person.pickup" disabled="disabled"/>
             </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <label for="addr">地址</label>
-              <input class="form-control" id="addr" type="tel" v-model="person.addr" disabled="disabled"/>
-            </div>
-          </div>
         </div>
         <div class="form-group">
-          <label for="site">匯款金額</label>
-          <input class="form-control" id="amount" type="text" v-model="person.amount" disabled="disabled"/>
+          <label for="addr">地址</label>
+          <input class="form-control" id="addr" type="text" v-model="person.addr=" disabled="disabled"/>
         </div>
         <div class="form-group">
-          <label for="message">帳號後五碼</label>
-          <input class="form-control" id="acc" type="text" v-model="person.acc" :disabled="person.name == undefined"/>
+          <label for="amount">匯款金額</label>
+          <input class="form-control" id="amount" type="number" v-model="person.amount" disabled="disabled"/>
+        </div>
+        <div class="form-group">
+          <label for="acc">帳號後五碼</label>
+          <input class="form-control" id="acc" type="number" v-model="person.acc" disabled="disabled"/>
         </div>
         <div class="submit"><a href="#" :class="{ disabled: person.name == undefined }" @click.prevent="submit">送出</a></div>
       </section>
